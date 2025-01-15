@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FSR Dinner Night</title>
@@ -51,6 +53,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
         #videoElement {
             width: 100%;
@@ -124,7 +127,7 @@
         let recordedChunks = [];
 
         async function setupCamera() {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
             videoElement.srcObject = stream;
         }
 
