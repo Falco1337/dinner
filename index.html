@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FSR Dinner Night</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
@@ -127,9 +126,16 @@
         let recordedChunks = [];
 
         async function setupCamera() {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
-            videoElement.srcObject = stream;
-        }
+        const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            zoom: false,
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+        },
+        audio: false
+    });
+    videoElement.srcObject = stream;
+}
 
         function startRecording() {
             recordedChunks = [];
@@ -175,4 +181,3 @@
     </script>
 </body>
 </html>
-
