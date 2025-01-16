@@ -30,7 +30,7 @@ h1 {
     align-items: center;
 }
 
-.live-btn {
+.live-btn, .admin-live-btn {
     position: absolute;
     top: 20px;
     right: 20px;
