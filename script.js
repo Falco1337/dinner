@@ -1,5 +1,8 @@
+const adminUsers = ["admin1", "admin2", "admin3", "admin4", "admin5"];  // List of 5 admin users
+const currentUser = "admin1";  // Simulate current user (replace with real session/auth data)
+
 const videoElement = document.getElementById('videoElement');
-const liveBtn = document.getElementById('liveBtn');
+const adminLiveBtn = document.getElementById('adminLiveBtn');
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
 let mediaRecorder;
@@ -20,6 +23,14 @@ async function setupCamera() {
     }
 }
 
+// Show live preview button if user is an admin
+if (adminUsers.includes(currentUser)) {
+    adminLiveBtn.style.display = 'inline-block';
+    adminLiveBtn.addEventListener('click', function() {
+        window.location.href = "admin.html";  // Redirect to admin page
+    });
+}
+
 function startRecording() {
     recordedChunks = [];
     const stream = videoElement.srcObject;
@@ -36,14 +47,12 @@ function startRecording() {
     mediaRecorder.start();
     startBtn.style.display = 'none';
     stopBtn.style.display = 'inline-block';
-    liveBtn.style.animation = 'blink 0.5s infinite';
 }
 
 function stopRecording() {
     mediaRecorder.stop();
     startBtn.style.display = 'inline-block';
     stopBtn.style.display = 'none';
-    liveBtn.style.animation = 'none';
 }
 
 function saveVideo() {
