@@ -27,7 +27,7 @@ async function setupCamera() {
 if (adminUsers.includes(currentUser)) {
     adminLiveBtn.style.display = 'inline-block';
     adminLiveBtn.addEventListener('click', function() {
-        window.location.href = "admin.html";  // Redirect to admin page
+        window.location.href = "mon.html";  
     });
 }
 
