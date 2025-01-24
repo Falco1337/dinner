@@ -43,6 +43,7 @@ h1 {
     border-radius: 5px;
     font-weight: bold;
     animation: blink 1s infinite;
+    transform: scaleX(-1);
 }
 
 .preview {
@@ -53,6 +54,7 @@ h1 {
     height: 100vh;
     border-radius: 1%;
     overflow: hidden;
+    transform: scaleX(-1);
 }
 
 #videoElement {
