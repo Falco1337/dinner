@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Video.js CDN -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,7 +24,11 @@
             <button class="admin-live-btn" id="adminLiveBtn" style="display: none;">Live</button>
         </header>
         <div class="preview">
-            <video id="videoElement" autoplay playsinline></video>
+            <!-- Video.js player -->
+            <video id="videoElement" class="video-js vjs-default-skin" controls autoplay>
+                <!-- RTMP stream source -->
+                <source src="rtmp://live.restream.io/live" type="rtmp/mp4" />
+            </video>
         </div>
         <div class="controls">
             <button class="control-btn" id="startBtn"><i class="fas fa-play"></i> Start Recording</button>
@@ -29,5 +37,15 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/videojs-flash@2.1.0/dist/videojs-flash.min.js"></script>
+    <script>
+        var player = videojs('videoElement', {
+            techOrder: ['flash'],
+            flash: {
+                swf: 'https://vjs.zencdn.net/7.20.3/video-js.swf'
+            }
+        });
+    </script>
 </body>
 </html>
