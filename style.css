@@ -43,7 +43,6 @@ h1 {
     border-radius: 5px;
     font-weight: bold;
     animation: blink 1s infinite;
-    transform: scaleX(-1);
 }
 
 .preview {
@@ -54,7 +53,6 @@ h1 {
     height: 100vh;
     border-radius: 1%;
     overflow: hidden;
-    transform: scaleX(-1);
 }
 
 #videoElement {
@@ -114,18 +112,11 @@ h1 {
 
 @keyframes pulsate {
     100% {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 40px #0ff;
     }
 }
 
 @keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 1;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
