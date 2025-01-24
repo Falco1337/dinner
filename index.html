@@ -24,10 +24,8 @@
             <button class="admin-live-btn" id="adminLiveBtn" style="display: none;">Live</button>
         </header>
         <div class="preview">
-            <!-- Video.js player -->
             <video id="videoElement" class="video-js vjs-default-skin" controls autoplay>
-                <!-- RTMP stream source -->
-                <source src="rtmp://live.restream.io/live" type="rtmp/mp4" />
+                <source src="https://path-to-your-hls-stream.m3u8" type="application/x-mpegURL" />
             </video>
         </div>
         <div class="controls">
@@ -38,14 +36,18 @@
 
     <script src="script.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/videojs-flash@2.1.0/dist/videojs-flash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@0.14.19/dist/hls.min.js"></script>
     <script>
-        var player = videojs('videoElement', {
-            techOrder: ['flash'],
-            flash: {
-                swf: 'https://vjs.zencdn.net/7.20.3/video-js.swf'
-            }
-        });
+        var video = document.getElementById('videoElement');
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('https://path-to-your-hls-stream.m3u8');
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = 'https://path-to-your-hls-stream.m3u8';
+        }
+
+        video.style.transform = "scaleX(-1)";
     </script>
 </body>
 </html>
