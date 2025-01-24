@@ -1,5 +1,5 @@
-const adminUsers = ["admin1", "admin2", "admin3", "admin4", "admin5"];  
-const currentUser = "admin1";  
+const adminUsers = ["admin1", "admin2", "admin3", "admin4", "admin5"];  // List of 5 admin users
+const currentUser = "admin1";  // Simulate current user (replace with real session/auth data)
 
 const videoElement = document.getElementById('videoElement');
 const adminLiveBtn = document.getElementById('adminLiveBtn');
